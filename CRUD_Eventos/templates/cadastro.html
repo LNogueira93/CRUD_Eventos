@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cadastro</title>
+</head>
+<body>
+    <h1>Página de Cadastro</h1>
+    <hr>
+    <form action="{{ url_for('eventos_app.cadastrar_evento') }}" method="POST">
+        <table>
+            <tr>
+                <td>Nome:</td>
+                <td><input type="text" name="nome" id="nome"></td>
+            </tr>
+            <tr>
+                <td>Categoria:</td>
+                <td><input type="text" name="categoria" id="categoria"></td>
+            </tr>
+            <tr>
+                <td>Local:</td>
+                <td><input type="text" name="local" id="local"></td>
+            </tr>
+            <tr>
+                <td>Organizador:</td>
+                <td><input type="text" name="organizador" id="organizador"></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+        </table><br>
+        <input type="submit" value="Cadastrar">
+    </form>
+    <a href="{{ url_for('eventos_app.home') }}">Voltar</a>
+</body>
+</html>

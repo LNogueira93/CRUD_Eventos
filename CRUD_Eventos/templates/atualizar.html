@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Evento</title>
+</head>
+<body>
+    <h1>Atualizar Evento</h1>
+    <hr>
+    <form method="POST">
+        <table>
+            <tr>
+                <td>Nome:</td>
+                <td><input type="text" name="nome" id="nome" value="{{ evento.nome }}"></td>
+            </tr>
+            <tr>
+                <td>Categoria:</td>
+                <td><input type="text" name="categoria" id="categoria" value="{{ evento.categoria }}"></td>
+            </tr>
+            <tr>
+                <td>Local:</td>
+                <td><input type="text" name="local" id="local" value="{{ evento.local }}"></td>
+            </tr>
+            <tr>
+                <td>Organizador:</td>
+                <td><input type="text" name="organizador" id="organizador" value="{{ evento.organizador }}"></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><input type="text" name="email" id="email" value="{{ evento.email }}"></td>
+            </tr>
+        </table><br>
+        <input type="submit" value="Atualizar">
+    </form>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>

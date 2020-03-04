@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de eventos</title>
+</head>
+<body>
+    <h1>Lista de eventos</h1>
+    <hr>
+    <table border="2">
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Categoria</td>
+            <td>Local</td>
+            <td>Organizador</td>
+            <td>E-mail</td>
+            <td>Excluir</td>
+            <td>Atualizar</td>
+        </tr>
+        {% for evento in eventos %}
+        <tr>
+            <td>{{ evento.ident }}</td>
+            <td>{{ evento.nome }}</td>
+            <td>{{ evento.categoria }}</td>
+            <td>{{ evento.local }}</td>
+            <td>{{ evento.organizador }}</td>
+            <td>{{ evento.email }}</td>
+            <td><a href="/excluir/{{ remover_evento.ident }}">X</a></td>
+            <td><a href="/atualizar/{{ alterar_evento.ident }}">Atualizar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('eventos_app.home') }}">Voltar</a>
+</body>
+</html>
