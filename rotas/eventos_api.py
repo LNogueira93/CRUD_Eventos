@@ -10,10 +10,10 @@ from services.eventos_services import \
 eventos_app = Blueprint('eventos_app', __name__, template_folder='templates')
 
 
-
 @eventos_app.route('/index')
 def home():
     return render_template("index.html")
+
 
 @eventos_app.route('/lista')  # '/lista'
 def listar_eventos():
@@ -21,24 +21,54 @@ def listar_eventos():
     return render_template("lista.html", eventos=eventos)
     # return jsonify(lista)
 
-
 # cadastro , methods=['POST']
-@eventos_app.route('/cadastrar', methods=['GET', 'POST'])
+@eventos_app.route('/cadastrar', methods=["POST"])
 def cadastrar_evento():
-    novo_evento = request.get_json()
-    evento = service_criar(novo_evento)
-    if evento == None:
-        return jsonify({'erro': 'evento ja existe'}), 400
-    return jsonify(evento)
+    # novo_evento = request.get_json()
+    if request.is_json:
+        novo_evento = request.get_json()
+        print("NOVO JSON DA APII_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
+        print(novo_evento)
+        evento = service_criar(novo_evento)
+        if evento == None:
+            return jsonify({'erro': 'evento ja existe'}), 400
+        return jsonify(evento)
+    else:
+        novo_evento = {}
+        novo_evento["id"] = request.form.get("id")
+        novo_evento["nome"] = request.form.get("nome")
+        novo_evento["categoria"] = request.form.get("categoria")
+        novo_evento["local"] = request.form.get("local")
+        novo_evento["organizador"] = request.form.get("organizador")
+        novo_evento["email"] = request.form.get("email")
+        
+        print("NOVO JSON DO FORM_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
+        print(novo_evento)
+        evento = service_criar(novo_evento)
+        if evento == None:
+            return jsonify({'erro': 'evento ja existe'}), 400
+        return jsonify(evento)
+
+    # data = request.get_json(force=True)
 
     # cadastro , methods=['POST']
+
+
 @eventos_app.route('/cadastro', methods=['GET', 'POST'])
 def pagina_cadastro():
     return render_template("cadastro.html")
 
 
-@eventos_app.route('/atualizar/<int:ident>', methods=['PUT'])  # atualizar
-def alterar_evento(ident):
+@eventos_app.route('/atualiza')
+def atualiza_cadastro():
+    return render_template("atualizar.html")
+
+    # <!-- < td > <a href = "/excluir/{{ url_for('eventos_app.remover_evento[evento.id]') }}" > X < /a > </td > - ->
+    # <!-- <td><a href="atualizar/{{ url_for('eventos_app.alterar_evento[evento.id]') }}">Atualizar</a></td> -->
+
+
+@eventos_app.route('/atualizar/<int:id>', methods=['PUT'])  # atualizar
+def alterar_evento(id):
     evento_data = request.get_json()
     if ('nome' not in evento_data):
         return jsonify({'erro': 'evento sem nome'}), 400
@@ -50,24 +80,24 @@ def alterar_evento(ident):
         return jsonify({'erro': 'evento sem oraganizador'}), 400
     elif ('email' not in evento_data):
         return jsonify({'erro': 'evento sem email'}), 400
-    atualizado = service_atualiza(ident, evento_data['nome'], evento_data['categoria'],
+    atualizado = service_atualiza(id, evento_data['nome'], evento_data['categoria'],
                                   evento_data['local'], evento_data['organizador'], evento_data['email'])
     if atualizado != None:
         return jsonify(atualizado), 200
     return jsonify({'erro': 'evento nao encontrado'}), 400
 
 
-@eventos_app.route('/buscar/<int:ident>', methods=['GET'])  # buscar
-def localizar_evento(ident):
-    evento = service_localiza(ident)
+@eventos_app.route('/buscar/<int:id>', methods=['GET'])  # buscar
+def localizar_evento(id):
+    evento = service_localiza(id)
     if evento != None:
         return jsonify(evento)
     return jsonify({'erro': 'evento nao encontrado'}), 400
 
 
-@eventos_app.route('/excluir/<int:ident>', methods=['DELETE'])  # excluir
-def remover_evento(ident):
-    removido = service_remover(ident)
+@eventos_app.route('/excluir/<int:id>', methods=['DELETE'])  # excluir
+def remover_evento(id):
+    removido = service_remover(id)
     if removido == 1:
         return jsonify(removido), 202
     return jsonify({'erro': 'evento nao encontrado'}), 400

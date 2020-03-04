@@ -21,14 +21,12 @@
         </tr>
         {% for evento in eventos %}
         <tr>
-            <td>{{ evento.ident }}</td>
+            <td>{{ evento.id }}</td>
             <td>{{ evento.nome }}</td>
             <td>{{ evento.categoria }}</td>
             <td>{{ evento.local }}</td>
             <td>{{ evento.organizador }}</td>
             <td>{{ evento.email }}</td>
-            <td><a href="/excluir/{{ remover_evento.ident }}">X</a></td>
-            <td><a href="/atualizar/{{ alterar_evento.ident }}">Atualizar</a></td>
         </tr>
         {% endfor %}
     </table>
