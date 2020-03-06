@@ -44,5 +44,5 @@ def alterar(evento):
 def remover(evento):
     with closing(con()) as connection, closing(connection.cursor()) as cursor:
         sql = f"DELETE FROM {model_name} WHERE id_evento = ?"
-        cursor.execute(sql, f"{evento.id_evento}")
+        cursor.execute(sql, [evento.id_evento])
         connection.commit()

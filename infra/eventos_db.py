@@ -23,11 +23,6 @@ def init():
         popularDb(cursor, 4, "Fumaceiçou", "Fumaceira", "15/12/2018", "02/01/2020", "Rua dos Gnomos Verdes", 90, 33.7, 60, 16)
         popularDb(cursor, 5, "Rocketseat", "DEV Master", "28/02/2020", "05/03/2020", "Rua do Object", 550, 125.8, 441, 15)
         popularDb(cursor, 6, "Orq. sinfônica", "Clássico", "27/08/2013", "20/01/2020", "Rua do Maestro", 1500, 154.9, 750, 12)
-        # popularDb(cursor, 2, "Sidney Santos", "Rock", "Rua do Rock", "Rokcker", "ss@email.com")
-        # popularDb(cursor, 3, "Matheus Leal", "Balada", "Rua Augusta", "DrinkOu", "ml@email.com")
-        # popularDb(cursor, 4, "Pedro Barata", "Fumaceira", "Avenida Paulista", "Gnomos verdes", "pb@email.com")
-        # popularDb(cursor, 5, "Paulo Guedes", "Rocketseat", "Rua do DEV", "Codar até morrer", "pg@email.com")
-        # popularDb(cursor, 6, "Roberto Carlos", "Clássico", "Sala São Paulo", "Orq. sinfônica", "rc@email.com")
     except:
         pass
     cursor.close()
