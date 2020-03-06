@@ -10,25 +10,41 @@
     <hr>
     <form action="{{ url_for('eventos_app.cadastrar_evento') }}" method="POST">
         <table>
-            <tr>
-                <td>Nome:</td>
-                <td><input type="text" name="nome" id="nome"></td>
+ <tr>
+                <td>Nome do evento:</td>
+                <td><input type="text" name="nome_evento" id="nome_evento" ></td>
             </tr>
             <tr>
-                <td>Categoria:</td>
-                <td><input type="text" name="categoria" id="categoria"></td>
+                <td>Descrição:</td>
+                <td><input type="text" name="descricao" id="descricao" ></td>
             </tr>
             <tr>
-                <td>Local:</td>
-                <td><input type="text" name="local" id="local"></td>
+                <td>Data de criacao:</td>
+                <td><input type="text" name="data_criacao" id="data_criacao" ></td>
             </tr>
             <tr>
-                <td>Organizador:</td>
-                <td><input type="text" name="organizador" id="organizador"></td>
+                <td>Data de atualizacao:</td>
+                <td><input type="text" name="data_atualizacao" id="data_atualizacao" ></td>
             </tr>
             <tr>
-                <td>E-mail:</td>
-                <td><input type="text" name="email" id="email"></td>
+                <td>Local do evento:</td>
+                <td><input type="text" name="local_evento" id="local_evento" ></td>
+            </tr>
+            <tr>
+                <td>Quantidade de ingressos:</td>
+                <td><input type="text" name="qntd_ingresso" id="qntd_ingresso" ></td>
+            </tr>
+            <tr>
+                <td>Preço do ingresso:</td>
+                <td><input type="text" name="preco_ingresso" id="preco_ingresso" ></td>
+            </tr>
+            <tr>
+                <td>Ingressos vendidos:</td>
+                <td><input type="text" name="ingresso_vendido" id="ingresso_vendido" ></td>
+            </tr>
+            <tr>
+                <td>Idade mínima:</td>
+                <td><input type="text" name="idade_minima" id="idade_minima" ></td>
             </tr>
         </table><br>
         <input type="submit" value="Cadastrar">

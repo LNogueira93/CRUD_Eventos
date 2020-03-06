@@ -11,24 +11,40 @@
     <form method="POST">
         <table>
             <tr>
-                <td>Nome:</td>
-                <td><input type="text" name="nome" id="nome" value="{{ evento.nome }}"></td>
+                <td>Nome do evento:</td>
+                <td><input type="text" name="nome_evento" id="nome_evento" value="{{ evento.nome_evento }}"></td>
             </tr>
             <tr>
-                <td>Categoria:</td>
-                <td><input type="text" name="categoria" id="categoria" value="{{ evento.categoria }}"></td>
+                <td>Descrição:</td>
+                <td><input type="text" name="descricao" id="descricao" value="{{ evento.descricao }}"></td>
             </tr>
             <tr>
-                <td>Local:</td>
-                <td><input type="text" name="local" id="local" value="{{ evento.local }}"></td>
+                <td>Data de criacao:</td>
+                <td><input type="text" name="data_criacao" id="data_criacao" value="{{ evento.data_criacao }}"></td>
             </tr>
             <tr>
-                <td>Organizador:</td>
-                <td><input type="text" name="organizador" id="organizador" value="{{ evento.organizador }}"></td>
+                <td>Data de atualizacao:</td>
+                <td><input type="text" name="data_atualizacao" id="data_atualizacao" value="{{ evento.data_atualizacao }}"></td>
             </tr>
             <tr>
-                <td>E-mail:</td>
-                <td><input type="text" name="email" id="email" value="{{ evento.email }}"></td>
+                <td>Local do evento:</td>
+                <td><input type="text" name="local_evento" id="local_evento" value="{{ evento.local_evento }}"></td>
+            </tr>
+            <tr>
+                <td>Quantidade de ingressos:</td>
+                <td><input type="text" name="qntd_ingresso" id="qntd_ingresso" value="{{ evento.qntd_ingresso }}"></td>
+            </tr>
+            <tr>
+                <td>Preço do ingresso:</td>
+                <td><input type="text" name="preco_ingresso" id="preco_ingresso" value="{{ evento.preco_ingresso }}"></td>
+            </tr>
+            <tr>
+                <td>Ingressos vendidos:</td>
+                <td><input type="text" name="ingresso_vendido" id="ingresso_vendido" value="{{ evento.ingresso_vendido }}"></td>
+            </tr>
+            <tr>
+                <td>Idade mínima:</td>
+                <td><input type="text" name="idade_minima" id="idade_minima" value="{{ evento.idade_minima }}"></td>
             </tr>
         </table><br>
         <input type="submit" value="Atualizar">

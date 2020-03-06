@@ -11,24 +11,32 @@
     <table border="1">
         <tr>
             <td>ID</td>
-            <td>Nome</td>
-            <td>Categoria</td>
-            <td>Local</td>
-            <td>Organizador</td>
-            <td>E-mail</td>
+            <td>Nome do Evento</td>
+            <td>Descrição</td>
+            <td>Data de criacao</td>
+            <td>Data de atualizacao</td>
+            <td>Local do evento</td>
+            <td>Quantidade de ingressos</td>
+            <td>Preço do ingresso</td>
+            <td>Ingressos vendidos</td>
+            <td>Idade mínima</td>
             <td>Excluir</td>
             <td>Atualizar</td>
         </tr>
         {% for evento in eventos %}
         <tr>
-            <td>{{ evento.id }}</td>
-            <td>{{ evento.nome }}</td>
-            <td>{{ evento.categoria }}</td>
-            <td>{{ evento.local }}</td>
-            <td>{{ evento.organizador }}</td>
-            <td>{{ evento.email }}</td>
-            <td><a href="/excluir/{{ evento.id }}">X</a></td>
-            <td><a href="/atualizar/{{ evento.id }}">Atualizar</a></td>
+            <td>{{ evento.id_evento }}</td>
+            <td>{{ evento.nome_evento }}</td>
+            <td>{{ evento.descricao }}</td>
+            <td>{{ evento.data_criacao }}</td>
+            <td>{{ evento.data_atualizacao }}</td>
+            <td>{{ evento.local_evento }}</td>
+            <td>{{ evento.qntd_ingresso }}</td>
+            <td>{{ evento.preco_ingresso }}</td>
+            <td>{{ evento.ingresso_vendido }}</td>
+            <td>{{ evento.idade_minima }}</td>
+            <td><a href="/excluir/{{ evento.id_evento }}">X</a></td>
+            <td><a href="/atualizar/{{ evento.id_evento }}">Atualizar</a></td>
         </tr>
         {% endfor %}
     </table>
