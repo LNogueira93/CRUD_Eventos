@@ -8,27 +8,16 @@ from infra.eventos_dao import \
 from model.evento import Eventos
 
 def listar():
-    # for evento in dao_listar():
-    #     return Eventos.__call__(self=evento)
-    # lista = []
-    # eventos = Eventos.__dict__()
-    # daoListar = dao_listar()
-    # for evento in daoListar:
-    #     lista.push(eventos)
-    #lista = [Eventos.__dict__() for evento in dao_listar()]
-    # return [Eventos.__dict__() for evento in dao_listar()]
-    # return [Eventos.__call__(self=evento) for evento in dao_listar()]
     return [evento.__dict__() for evento in dao_listar()]
 
 def localizar(id):
     evento = dao_consultar(id)
     if evento == None:
         return None
-    return evento.__call__()
+    return evento.__dict__()
 
 def criar(evento_data):
-    # if localizar(evento_data["id"]) == None:
-    if localizar(evento_data) == None:
+    if localizar(evento_data["id"]) == None:
         evento = Eventos.criar(evento_data)
         return dao_cadastrar(evento)
     return None

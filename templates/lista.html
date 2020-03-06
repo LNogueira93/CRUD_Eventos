@@ -27,6 +27,8 @@
             <td>{{ evento.local }}</td>
             <td>{{ evento.organizador }}</td>
             <td>{{ evento.email }}</td>
+            <td><a href="/excluir/{{ evento.id }}">X</a></td>
+            <td><a href="/atualizar/{{ evento.id }}">Atualizar</a></td>
         </tr>
         {% endfor %}
     </table>
