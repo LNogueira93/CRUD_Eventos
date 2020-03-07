@@ -13,7 +13,7 @@ eventos_app = Blueprint('eventos_app', __name__, template_folder='templates')
 def home():
     return render_template("index.html")
 
-@eventos_app.route('/lista')  # '/lista'
+@eventos_app.route('/lista')
 def listar_eventos():
     eventos = service_listar()
     return render_template("lista.html", eventos=eventos)
@@ -40,12 +40,6 @@ def cadastrar_evento():
         novo_evento["preco_ingresso"] = request.form.get("preco_ingresso")
         novo_evento["ingresso_vendido"] = request.form.get("ingresso_vendido")
         novo_evento["idade_minima"] = request.form.get("idade_minima")
-        # novo_evento["id"] = request.form.get("id")
-        # novo_evento["nome"] = request.form.get("nome")
-        # novo_evento["categoria"] = request.form.get("categoria")
-        # novo_evento["local"] = request.form.get("local")
-        # novo_evento["organizador"] = request.form.get("organizador")
-        # novo_evento["email"] = request.form.get("email")
         print("NOVO JSON DO FORM_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
         print(novo_evento)
         evento = service_criar(novo_evento)
